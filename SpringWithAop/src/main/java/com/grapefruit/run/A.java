@@ -1,6 +1,6 @@
 package com.grapefruit.run;
 
-import com.grapefruit.mark.MyBefore;
+import com.grapefruit.mark.MyException;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class A {
-    @MyBefore
+    @MyException
     public void run(){
         System.out.println("A---->");
         int i = 1/0;

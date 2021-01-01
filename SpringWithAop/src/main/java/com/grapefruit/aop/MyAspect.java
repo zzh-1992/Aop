@@ -13,13 +13,17 @@ import org.springframework.stereotype.Component;
 public class MyAspect {
 
     //使用类路径通配符的方式定义pointcut
-    @Pointcut(value = "execution(* com.grapefruit..*.*(..))")
+    //@Pointcut(value = "execution(* com.grapefruit..*.*(..))")
 
     //使用注解标记的方式定义pointcut
-    //@Pointcut(value = "@annotation(com.grapefruit.mark.MyBefore)")
+    @Pointcut(value = "@annotation(com.grapefruit.mark.Other)")
     public void aop(){}
 
-    //@Pointcut(value = "@annotation(com.grapefruit.springboot.MyBefore)")
+    //使用注解标记的方式定义pointcut
+    @Pointcut(value = "@annotation(com.grapefruit.mark.MyException)")
+    public void ex(){}
+
+    //@Pointcut(value = "@annotation(com.grapefruit.mark.MyBefore)")
     public void annotation(){
         System.out.println("使用注解定义位置----------");
     }
@@ -29,11 +33,12 @@ public class MyAspect {
         System.out.println("前置通知开始-------");
     }
 
-    @AfterThrowing(value = "aop()" ,throwing = "e")
-    public void exception(Exception e){
+    @AfterThrowing(value = "ex()" ,throwing = "e")
+    public void exception(Exception e) {
+        //处理异常逻辑
         System.out.println("异常通知开始-------" + e);
+        System.out.println("e:" + e.getClass());
     }
-
 
     @After("aop()")
     public void aopAfter(){
@@ -41,9 +46,10 @@ public class MyAspect {
     }
 
     @Around("aop()")
-    public void aopAround(ProceedingJoinPoint joinPoint) throws Throwable{
+    public Object aopAround(ProceedingJoinPoint joinPoint) throws Throwable{
         System.out.println("环绕 前置通知开始-------");
-        joinPoint.proceed();
+        Object result = joinPoint.proceed();
         System.out.println("环绕 后置通知开始-------");
+        return result;
     }
 }
