@@ -1,6 +1,6 @@
 package com.grapefruit;
 
-import com.grapefruit.run.A;
+import com.grapefruit.run.Run;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -10,7 +10,7 @@ public class SpringAop {
     public static void main( String[] args ) throws InterruptedException {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
         try{
-            A bean = context.getBean(A.class);
+            Run bean = context.getBean(Run.class);
             bean.run();
         }catch (Exception e){
             //UndeclaredThrowableException exception = (UndeclaredThrowableException) e;

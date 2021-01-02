@@ -1,5 +1,6 @@
 package com.grapefruit.springboot.schedule;
 
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -13,8 +14,15 @@ import java.util.Date;
 @Component
 public class ScheduleTask {
 
-    @Scheduled(fixedRate = 1000)
+    @Scheduled(fixedRate = 100)
+    @Async
     public void reportCurrentTime(){
-        System.out.println("now time:" + new Date());
+        System.out.println("now time:" + new Date() + Thread.currentThread().getName());
+    }
+
+    @Scheduled(fixedRate = 100)
+    @Async
+    public void reportCurrentTime2(){
+        System.out.println("now time:" + new Date() + Thread.currentThread().getName());
     }
 }
