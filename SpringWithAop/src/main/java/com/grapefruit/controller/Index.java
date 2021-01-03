@@ -11,8 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/")
 @RestController
 public class Index {
-    @RequestMapping("/index")
-    public String index(){
-        return Run.getTimeStr();
+    @RequestMapping("/ix")
+    private String index(){
+        return "Index" + Run.getTimeStr();
+    }
+
+    @RequestMapping("/hp")
+    private String homepage(){
+        return "HomePage:" + Run.getTimeStr();
     }
 }
