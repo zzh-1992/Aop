@@ -12,8 +12,8 @@
 
     <aop:aspectj-autoproxy />
 
-    <task:scheduled-tasks>
+<!--    <task:scheduled-tasks>
         <task:scheduled method="task1" ref="a" initial-delay="2000" fixed-rate="2000"/>
         <task:scheduled method="task2" ref="a" initial-delay="3000" fixed-rate="2000"/>
-    </task:scheduled-tasks>
+    </task:scheduled-tasks>-->
 </beans>
