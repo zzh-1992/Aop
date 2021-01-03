@@ -10,14 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RequestMapping("/")
 @RestController
-public class Index {
-    @RequestMapping("/ix")
-    private String index(){
-        return "Index" + Run.getTimeStr();
-    }
-
-    @RequestMapping("/sayHi")
-    private String sayHi(){
-        return "SayHi:" + Run.getTimeStr();
+public class HomePage {
+    @RequestMapping("/hp")
+    private String homepage(){
+        return "HomePage:" + Run.getTimeStr();
     }
 }
