@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.grapefruit</groupId>
-  <artifactId>springaop</artifactId>
+  <artifactId>SpringWithAop</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <name>springaop</name>
