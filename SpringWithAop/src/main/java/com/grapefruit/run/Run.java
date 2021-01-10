@@ -10,12 +10,14 @@ import java.time.format.DateTimeFormatter;
  * @author 柚子苦瓜茶
  * @version 1.0
  */
-@Component("a")
+@Component()
 public class Run {
     @MyException
     public void run(){
         System.out.println("A---->");
         int i = 1/1;
+        Object obj = getA();
+        A.class.cast(obj);
     }
 
     public void task1(){
@@ -28,5 +30,9 @@ public class Run {
 
     public static String getTimeStr(){
         return LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"));
+    }
+    
+    public Object getA(){
+        return new A();
     }
 }
